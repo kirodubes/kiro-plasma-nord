@@ -1,0 +1,17 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "eliverlara@gmail.com",
+                "Name": "EliverLara"
+            }
+        ],
+        "Id": "Kiro-Nordic",
+        "License": "GPL-3.0+",
+        "Name": "Kiro Nordic",
+        "Version": "0.1",
+        "Website": "https://github.com/EliverLara/Nordic"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

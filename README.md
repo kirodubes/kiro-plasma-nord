@@ -4,25 +4,29 @@
 
 # kiro-plasma-nord
 
-Kiro's **Nord** Plasma global theme — the calm, muted Nord palette, packaged as three
+Kiro's **Kiro Nord** Plasma global theme — the calm, muted Nord palette, packaged as three
 ready-to-pick Global Themes with cohesive Nord icons and cursors.
+
+Everything ships under a `Kiro-` namespace, so it **coexists with the upstream Nordic
+theme** — install the real `nordic-kde-theme-git` / `nordic-kvantum-git` alongside it
+without any file conflict.
 
 ## What it ships
 
 Three Global Themes you select in **System Settings → Appearance → Global Themes**:
-**Nordic**, **Nordic Darker**, **Nordic Bluish**. Each pulls in its full set of layers:
+**Kiro Nordic**, **Kiro Nordic Darker**, **Kiro Nordic Bluish**. Each pulls in its full set of layers:
 
 | Layer | Path | Notes |
 |---------------------|------------------------------------------|------------------------------|
-| Plasma desktop theme | `/usr/share/plasma/desktoptheme/Nordic` | panels, widgets, popups |
-| Global themes (look-and-feel) | `/usr/share/plasma/look-and-feel/Nordic{,-darker,-bluish}` | the three variants |
-| Window decorations | `/usr/share/aurorae/themes/Nordic` | shared Aurorae titlebars |
-| Color schemes | `/usr/share/color-schemes/*.colors` | Nordic / NordicDarker / nordicbluish |
-| Kvantum themes | `/usr/share/Kvantum/Nordic*` | Qt app styling (incl. `-Solid`) |
-| Kvantum default selection | `/etc/skel/.config/Kvantum/kvantum.kvconfig` | new users get `Nordic` automatically |
-| SDDM login themes | `/usr/share/sddm/themes/Nordic{,-darker,-bluish}` | the login screen |
-| Nord icons | `/usr/share/icons/Nordic-{green,darker,bluish}` | Nord-tinted folder icons |
-| Nord cursors | `/usr/share/icons/Nordic-cursors` | prebuilt cursor theme |
+| Plasma desktop theme | `/usr/share/plasma/desktoptheme/Kiro-Nordic` | panels, widgets, popups |
+| Global themes (look-and-feel) | `/usr/share/plasma/look-and-feel/Kiro-Nordic{,-darker,-bluish}` | the three variants |
+| Window decorations | `/usr/share/aurorae/themes/Kiro-Nordic` | shared Aurorae titlebars |
+| Color schemes | `/usr/share/color-schemes/Kiro-*.colors` | Kiro-Nordic / Kiro-NordicDarker / Kiro-nordicbluish |
+| Kvantum themes | `/usr/share/Kvantum/Kiro-Nordic*` | Qt app styling (incl. `-Solid`) |
+| Kvantum default selection | `/etc/xdg/Kvantum/kvantum.kvconfig` | new users get `Kiro-Nordic` automatically |
+| SDDM login themes | `/usr/share/sddm/themes/Kiro-Nordic{,-darker,-bluish}` | the login screen |
+| Nord icons | `/usr/share/icons/Kiro-Nordic-{green,darker,bluish}` | Nord-tinted folder icons |
+| Nord cursors | `/usr/share/icons/Kiro-Nordic-cursors` | prebuilt cursor theme |
 
 The Nord folder icons inherit from **Papirus-Dark** (and fall back through Breeze), so
 the package depends on `papirus-icon-theme` for the fullest icon coverage.
@@ -33,8 +37,8 @@ the package depends on `papirus-icon-theme` for the fullest icon coverage.
 sudo pacman -S kiro-plasma-nord
 ```
 
-Then open **System Settings → Appearance → Global Themes** and apply **Nordic**,
-**Nordic Darker**, or **Nordic Bluish**. New users get the Nordic Kvantum theme for Qt
+Then open **System Settings → Appearance → Global Themes** and apply **Kiro Nordic**,
+**Kiro Nordic Darker**, or **Kiro Nordic Bluish**. New users get the Kiro Nordic Kvantum theme for Qt
 apps automatically; existing users can pick it in **Kvantum Manager**.
 
 ## Heritage

@@ -1,0 +1,17 @@
+{
+    "KPackageStructure": "Plasma/Theme",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "eliverlara@gmail.com",
+                "Name": "EliverLara"
+            }
+        ],
+        "Comment": "Dark theme created using the awesome Nord color palette.",
+        "Id": "Kiro-Nordic",
+        "License": "CC-BY-SA-4.0",
+        "Name": "Kiro Nordic",
+        "Version": "1.0.1",
+        "Website": "https://github.com/EliverLara/Nordic-kde"
+    }
+}

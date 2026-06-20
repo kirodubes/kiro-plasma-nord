@@ -18,11 +18,11 @@ Nord's own folder icons and prebuilt cursors. Sibling to [[kiro-plasma-sweet]].
   `metadata.json` (not upstream's `metadata.desktop`). On any upstream refresh, redo the
   conversion and delete the `.desktop` — see UPSTREAM.md step 1. Without it the themes
   won't show in Plasma 6 System Settings.
-- **Upstream bug to keep fixed:** `look-and-feel/Nordic/contents/defaults` upstream says
-  `candy-Nordic-green` (nonexistent) → must be `Nordic-green`.
-- Cursors: bundled (`Nordic-cursors`), referenced by the defaults — no edit needed.
+- **Upstream bug to keep fixed:** `look-and-feel/Kiro-Nordic/contents/defaults` upstream says
+  `candy-Nordic-green` (nonexistent) → must be `Kiro-Nordic-green`.
+- Cursors: bundled (`Kiro-Nordic-cursors`), referenced by the defaults — no edit needed.
 - **Kvantum default ships to `/etc/xdg`, not `/etc/skel`.** `etc/xdg/Kvantum/kvantum.kvconfig`
-  → `theme=Nordic`. Kvantum's style plugin resolves its config via
+  → `theme=Kiro-Nordic`. Kvantum's style plugin resolves its config via
   `QStandardPaths::standardLocations()` (the full XDG cascade `~/.config` → `/etc/xdg`), so
   it reads the `/etc/xdg` copy as a system fallback for every user — including the live ISO
   user — and it uninstalls cleanly as a package-owned file. `/etc/skel` only seeded *new*
