@@ -50,7 +50,8 @@ From `EliverLara/Nordic-kde`:
    theme shipped in `icons/`).
 
 Kiro-only files (not from upstream — leave as is on refresh):
-- `etc/skel/.config/Kvantum/kvantum.kvconfig` → `[General] theme=Nordic`
+- `etc/xdg/Kvantum/kvantum.kvconfig` → `[General] theme=Nordic` (system XDG default layer,
+  read by Kvantum for every user including the live ISO user — not `/etc/skel`)
 
 ## Verify on the Plasma test box
 

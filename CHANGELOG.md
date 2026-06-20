@@ -14,8 +14,12 @@
   (and removed the `.desktop`), so the Global Themes appear in Plasma 6 System Settings.
 - **Fixed upstream bug:** the Nordic variant's `defaults` referenced a non-existent
   `candy-Nordic-green` icon theme → corrected to `Nordic-green`.
-- **Default Kvantum selection** shipped via `/etc/skel/.config/Kvantum/kvantum.kvconfig`
-  (`theme=Nordic`).
+- **Default Kvantum selection** shipped via `/etc/xdg/Kvantum/kvantum.kvconfig`
+  (`theme=Nordic`) — the system XDG default layer, moved off `/etc/skel`. Kvantum's style
+  plugin resolves its config through `QStandardPaths::standardLocations()` (full XDG
+  cascade), so the `/etc/xdg` copy applies to every user including the live ISO user, not
+  just newly-created accounts, and uninstalls cleanly as a package-owned file. Mirrors how
+  `kiro-plasma-system-settings` ships its defaults.
 - Cursors: the look-and-feel defaults already reference `Nordic-cursors`, which we bundle
   — no cursor edit needed.
 
@@ -32,5 +36,5 @@
 - usr/share/plasma/look-and-feel/{Nordic,Nordic-darker,Nordic-bluish} (new, P6 metadata.json)
 - usr/share/aurorae/themes/Nordic, color-schemes/*.colors, Kvantum/Nordic*, sddm/themes/Nordic* (new)
 - usr/share/icons/{Nordic-green,Nordic-darker,Nordic-bluish,Nordic-cursors} (new)
-- etc/skel/.config/Kvantum/kvantum.kvconfig (new)
+- etc/xdg/Kvantum/kvantum.kvconfig (new — system XDG default, replaces the earlier etc/skel copy)
 - README.md, CHANGELOG.md, CLAUDE.md, UPSTREAM.md, LICENSE, up.sh, setup.sh, kiro.jpg, .gitignore (new)

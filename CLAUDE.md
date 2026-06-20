@@ -6,7 +6,7 @@ selectable Global Themes (Nordic, Nordic Darker, Nordic Bluish) with every layer
 Nord's own folder icons and prebuilt cursors. Sibling to [[kiro-plasma-sweet]].
 
 ## Current state
-- Source repo: `~/KIRO/kiro-plasma-nord` (payload under `usr/`, Kvantum default under `etc/skel`).
+- Source repo: `~/KIRO/kiro-plasma-nord` (payload under `usr/`, Kvantum default under `etc/xdg`).
 - Build recipe: `~/KIRO-PKG-BUILD-APPS/kiro-plasma-nord`.
 - Two upstreams (EliverLara/Nordic `kde/` + EliverLara/Nordic-kde) — see [UPSTREAM.md](./UPSTREAM.md).
 
@@ -21,8 +21,15 @@ Nord's own folder icons and prebuilt cursors. Sibling to [[kiro-plasma-sweet]].
 - **Upstream bug to keep fixed:** `look-and-feel/Nordic/contents/defaults` upstream says
   `candy-Nordic-green` (nonexistent) → must be `Nordic-green`.
 - Cursors: bundled (`Nordic-cursors`), referenced by the defaults — no edit needed.
-- Kvantum default for new users: `etc/skel/.config/Kvantum/kvantum.kvconfig` → `theme=Nordic`.
+- **Kvantum default ships to `/etc/xdg`, not `/etc/skel`.** `etc/xdg/Kvantum/kvantum.kvconfig`
+  → `theme=Nordic`. Kvantum's style plugin resolves its config via
+  `QStandardPaths::standardLocations()` (the full XDG cascade `~/.config` → `/etc/xdg`), so
+  it reads the `/etc/xdg` copy as a system fallback for every user — including the live ISO
+  user — and it uninstalls cleanly as a package-owned file. `/etc/skel` only seeded *new*
+  accounts and risked a shared-path clash; `/etc/xdg` mirrors how `kiro-plasma-system-settings`
+  ships its defaults. Don't add an `.install` scriptlet to write it (that file would be
+  unowned). Only one Kiro Plasma theme is ever installed, so no `conflicts` group is needed.
 - `konsole/` excluded (Kiro ships `kiro-plasma-konsole`); `kvantum/*.tar.xz` excluded.
-- Mixed delivery: payload → `/usr/share`, Kvantum selection → `/etc/skel`. PKGBUILD copies both.
+- Mixed delivery: payload → `/usr/share`, Kvantum selection → `/etc/xdg`. PKGBUILD copies both.
 - **Must be tested on the Plasma test box** — the P6 metadata conversion needs visual
   confirmation that all three Global Themes appear and apply.
