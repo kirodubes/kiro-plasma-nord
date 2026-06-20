@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026.06.20 — Kvantum default via install scriptlet (no packaged kvconfig)
+
+### What Changed
+- Stopped shipping a packaged `kvantum.kvconfig`. The Kvantum selection is now written by a
+  pacman **install scriptlet** to `/etc/skel/.config/Kvantum/kvantum.kvconfig` (`theme=Kiro-Nordic`)
+  on install/upgrade — moved off the old `/etc/xdg` location so it no longer clashes with the
+  other kiro-plasma themes or `kiro-kvantum`. They all coexist now; last-installed theme wins,
+  falling back to `kiro-kvantum`'s `ArcDark` baseline.
+
+### Technical Details
+- Removed the `etc/` payload entirely (it held only the `/etc/xdg` Kvantum selection); the
+  PKGBUILD no longer copies `etc/`. Added `install=kiro-plasma-nord.install`
+  (`post_install`/`post_upgrade`) and `depends+=('kiro-kvantum')` so the overwritten baseline
+  stays package-owned and the override is deterministic.
+
+### Files Modified
+- Removed `etc/xdg/Kvantum/kvantum.kvconfig` (+ empty `etc/`)
+- `../KIRO-PKG-BUILD-APPS/kiro-plasma-nord/PKGBUILD` — drop `cp etc`, add `install=` + `kiro-kvantum` dep
+- `../KIRO-PKG-BUILD-APPS/kiro-plasma-nord/kiro-plasma-nord.install` — new scriptlet
+
 ## 2026.06.20 — rename theme identity to Kiro namespace (coexist with upstream Nordic)
 
 ### What Changed
