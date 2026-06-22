@@ -1,32 +1,39 @@
 # Changelog
 
-## 2026.06.22 — Switch icons to Surfn-Mint-Y-Aqua; drop bundled Nord icon themes
+## 2026.06.22 — Switch icons to Surfn-Mint-Y-Aqua; drop bundled Nord icons; remove Bluish variant
 
 ### What Changed
-- All three Nord global-theme variants (Kiro-Nordic, Kiro-Nordic-bluish, Kiro-Nordic-darker)
-  now use the **`Surfn-Mint-Y-Aqua`** icon theme instead of their own
-  `Kiro-Nordic-{green,bluish,darker}` folder icons. Added `surfn-mint-y-icons-git` (in
-  `nemesis_repo`) as a dependency so the icons are present on install.
+- **Icons → `Surfn-Mint-Y-Aqua`** for every variant, instead of the per-variant
+  `Kiro-Nordic-*` folder icons. Added `surfn-mint-y-icons-git` (in `nemesis_repo`) as a
+  dependency so the icons are present on install.
 - **Slimmed the package:** removed the bundled `Kiro-Nordic-{green,bluish,darker}` icon
   themes (no longer used) and dropped the `papirus-icon-theme` dependency they relied on.
   Only `Kiro-Nordic-cursors` remains under `usr/share/icons`.
+- **Removed the Nordic Bluish variant** entirely — the package now ships two Global Themes
+  (Kiro Nordic, Kiro Nordic Darker). Deleted the bluish look-and-feel, color scheme, both
+  Kvantum themes, and SDDM theme. Desktop theme and Aurorae are shared `Kiro-Nordic` and
+  were untouched.
 
 ### Technical Details
-- Changed `[kdeglobals][Icons] Theme=` in the `contents/defaults` of all three look-and-feel
-  variants from their per-variant Nord icon theme to `Surfn-Mint-Y-Aqua`.
+- Changed `[kdeglobals][Icons] Theme=` in the `contents/defaults` of the remaining look-and-feel
+  variants to `Surfn-Mint-Y-Aqua`.
 - PKGBUILD: `depends` now `('surfn-mint-y-icons-git' 'kvantum' 'sddm' 'kiro-kvantum')` —
-  added the Surfn icons, removed `papirus-icon-theme`. Updated `pkgdesc`. `pkgrel`
-  auto-bumped by `build-data.sh`.
-- Deleted icon dirs: `usr/share/icons/Kiro-Nordic-{green,bluish,darker}`. The color-scheme
-  and look-and-feel/SDDM theme IDs that share these names are distinct objects and were left
-  untouched.
+  added the Surfn icons, removed `papirus-icon-theme`. `pkgdesc` now reads "2 variants
+  (Nordic, Darker)". `pkgrel` auto-bumped by `build-data.sh`.
+- Bluish removal deleted: `look-and-feel/Kiro-Nordic-bluish`,
+  `color-schemes/Kiro-nordicbluish.colors`, `Kvantum/Kiro-Nordic-bluish{,-solid}`,
+  `sddm/themes/Kiro-Nordic-bluish`. The blanket `cp -a usr` install means the deletions
+  drop straight out of the package.
 
 ### Files Modified
 - `usr/share/plasma/look-and-feel/Kiro-Nordic/contents/defaults`
-- `usr/share/plasma/look-and-feel/Kiro-Nordic-bluish/contents/defaults`
 - `usr/share/plasma/look-and-feel/Kiro-Nordic-darker/contents/defaults`
 - Removed: `usr/share/icons/Kiro-Nordic-{green,bluish,darker}/`
-- `README.md`, `CLAUDE.md`
+- Removed (Bluish): `usr/share/plasma/look-and-feel/Kiro-Nordic-bluish/`,
+  `usr/share/color-schemes/Kiro-nordicbluish.colors`,
+  `usr/share/Kvantum/Kiro-Nordic-bluish/`, `usr/share/Kvantum/Kiro-Nordic-bluish-solid/`,
+  `usr/share/sddm/themes/Kiro-Nordic-bluish/`
+- `README.md`, `CLAUDE.md`, `UPSTREAM.md`
 - `../KIRO-PKG-BUILD-APPS/kiro-plasma-nord/PKGBUILD`
 
 ## 2026.06.20 — Kvantum default via install scriptlet (no packaged kvconfig)

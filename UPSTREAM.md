@@ -18,13 +18,18 @@ Everything needed to refresh this theme from upstream in the future.
 From `EliverLara/Nordic/kde/`:
 | Upstream | Installed to |
 |------------------------------|----------------------------------------|
-| `plasma/look-and-feel/{Nordic,Nordic-darker,Nordic-bluish}` | `usr/share/plasma/look-and-feel/` |
+| `plasma/look-and-feel/{Nordic,Nordic-darker}` | `usr/share/plasma/look-and-feel/` |
 | `aurorae/Nordic` | `usr/share/aurorae/themes/Nordic` |
 | `colorschemes/*.colors` | `usr/share/color-schemes/` |
 | `kvantum/*` (dirs only, not the `.tar.xz`) | `usr/share/Kvantum/` |
-| `sddm/{Nordic,Nordic-darker,Nordic-bluish}` | `usr/share/sddm/themes/` |
-| `folders/{Nordic-green,Nordic-darker,Nordic-bluish}` | `usr/share/icons/` |
+| `sddm/{Nordic,Nordic-darker}` | `usr/share/sddm/themes/` |
 | `cursors/Nordic-cursors` (prebuilt) | `usr/share/icons/Nordic-cursors` |
+
+> **Removed since:** the **Bluish** variant (look-and-feel, color scheme,
+> Kvantum `Kiro-Nordic-bluish{,-solid}`, SDDM theme) was dropped 2026.06.22; and the bundled
+> `folders/{Nordic-green,Nordic-darker,Nordic-bluish}` icon themes were dropped the same day
+> (icons now come from the `surfn-mint-y-icons-git` dep). Don't re-copy these on a refresh
+> unless re-adding the variant.
 
 From `EliverLara/Nordic-kde`:
 | Upstream | Installed to |
@@ -55,5 +60,5 @@ Kiro-only files (not from upstream — leave as is on refresh):
 
 ## Verify on the Plasma test box
 
-The Plasma-6 metadata conversion must be confirmed visually: the three Global Themes
+The Plasma-6 metadata conversion must be confirmed visually: both Global Themes
 should appear and apply in System Settings, with the Nord icons/cursors/Kvantum active.
