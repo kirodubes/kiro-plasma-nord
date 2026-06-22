@@ -1,5 +1,28 @@
 # Changelog
 
+## 2026.06.22 — Default icon theme → Surfn-Mint-Y-Aqua for all three variants
+
+### What Changed
+- All three Nord global-theme variants (Kiro-Nordic, Kiro-Nordic-bluish, Kiro-Nordic-darker)
+  now default to the **`Surfn-Mint-Y-Aqua`** icon theme instead of their own
+  `Kiro-Nordic-{green,bluish,darker}` folder icons. Added `surfn-mint-y-icons-git` (in
+  `nemesis_repo`) as a dependency so the icons are present on install.
+
+### Technical Details
+- Changed `[kdeglobals][Icons] Theme=` in the `contents/defaults` of all three look-and-feel
+  variants from their per-variant Nord icon theme to `Surfn-Mint-Y-Aqua`.
+- PKGBUILD: prepended `surfn-mint-y-icons-git` to `depends`; kept `papirus-icon-theme` because
+  the bundled `Kiro-Nordic-*` folder-icon themes (still shipped and selectable) inherit
+  `Papirus-Dark`. Updated `pkgdesc`. `pkgrel` auto-bumped by `build-data.sh`.
+- The shipped Nord icon themes were left in place (selectable), just no longer the default.
+
+### Files Modified
+- `usr/share/plasma/look-and-feel/Kiro-Nordic/contents/defaults`
+- `usr/share/plasma/look-and-feel/Kiro-Nordic-bluish/contents/defaults`
+- `usr/share/plasma/look-and-feel/Kiro-Nordic-darker/contents/defaults`
+- `README.md`, `CLAUDE.md`
+- `../KIRO-PKG-BUILD-APPS/kiro-plasma-nord/PKGBUILD`
+
 ## 2026.06.20 — Kvantum default via install scriptlet (no packaged kvconfig)
 
 ### What Changed
