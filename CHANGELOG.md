@@ -13,6 +13,11 @@
   (Kiro Nordic, Kiro Nordic Darker). Deleted the bluish look-and-feel, color scheme, both
   Kvantum themes, and SDDM theme. Desktop theme and Aurorae are shared `Kiro-Nordic` and
   were untouched.
+- **Recolored the Kiro-Nordic accent** from the Nord teal-green `143,188,187` (#8FBCBB) to
+  the Surfn-Mint-Y-Aqua folder blue `104,165,201` (#68a5c9), so the selection highlight and
+  focus/hover accents match the folder icons. All 12 occurrences in `Kiro-Nordic.colors`
+  (Selection `BackgroundNormal`, and `DecorationFocus`/`DecorationHover` across every section)
+  were updated. Kiro-NordicDarker uses a separate accent and was left as-is.
 
 ### Technical Details
 - Changed `[kdeglobals][Icons] Theme=` in the `contents/defaults` of the remaining look-and-feel
