@@ -1,25 +1,31 @@
 # Changelog
 
-## 2026.06.22 — Default icon theme → Surfn-Mint-Y-Aqua for all three variants
+## 2026.06.22 — Switch icons to Surfn-Mint-Y-Aqua; drop bundled Nord icon themes
 
 ### What Changed
 - All three Nord global-theme variants (Kiro-Nordic, Kiro-Nordic-bluish, Kiro-Nordic-darker)
-  now default to the **`Surfn-Mint-Y-Aqua`** icon theme instead of their own
+  now use the **`Surfn-Mint-Y-Aqua`** icon theme instead of their own
   `Kiro-Nordic-{green,bluish,darker}` folder icons. Added `surfn-mint-y-icons-git` (in
   `nemesis_repo`) as a dependency so the icons are present on install.
+- **Slimmed the package:** removed the bundled `Kiro-Nordic-{green,bluish,darker}` icon
+  themes (no longer used) and dropped the `papirus-icon-theme` dependency they relied on.
+  Only `Kiro-Nordic-cursors` remains under `usr/share/icons`.
 
 ### Technical Details
 - Changed `[kdeglobals][Icons] Theme=` in the `contents/defaults` of all three look-and-feel
   variants from their per-variant Nord icon theme to `Surfn-Mint-Y-Aqua`.
-- PKGBUILD: prepended `surfn-mint-y-icons-git` to `depends`; kept `papirus-icon-theme` because
-  the bundled `Kiro-Nordic-*` folder-icon themes (still shipped and selectable) inherit
-  `Papirus-Dark`. Updated `pkgdesc`. `pkgrel` auto-bumped by `build-data.sh`.
-- The shipped Nord icon themes were left in place (selectable), just no longer the default.
+- PKGBUILD: `depends` now `('surfn-mint-y-icons-git' 'kvantum' 'sddm' 'kiro-kvantum')` —
+  added the Surfn icons, removed `papirus-icon-theme`. Updated `pkgdesc`. `pkgrel`
+  auto-bumped by `build-data.sh`.
+- Deleted icon dirs: `usr/share/icons/Kiro-Nordic-{green,bluish,darker}`. The color-scheme
+  and look-and-feel/SDDM theme IDs that share these names are distinct objects and were left
+  untouched.
 
 ### Files Modified
 - `usr/share/plasma/look-and-feel/Kiro-Nordic/contents/defaults`
 - `usr/share/plasma/look-and-feel/Kiro-Nordic-bluish/contents/defaults`
 - `usr/share/plasma/look-and-feel/Kiro-Nordic-darker/contents/defaults`
+- Removed: `usr/share/icons/Kiro-Nordic-{green,bluish,darker}/`
 - `README.md`, `CLAUDE.md`
 - `../KIRO-PKG-BUILD-APPS/kiro-plasma-nord/PKGBUILD`
 

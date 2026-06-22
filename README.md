@@ -25,13 +25,11 @@ Three Global Themes you select in **System Settings → Appearance → Global Th
 | Kvantum themes | `/usr/share/Kvantum/Kiro-Nordic*` | Qt app styling (incl. `-Solid`) |
 | Kvantum default selection | `/etc/xdg/Kvantum/kvantum.kvconfig` | new users get `Kiro-Nordic` automatically |
 | SDDM login themes | `/usr/share/sddm/themes/Kiro-Nordic{,-darker,-bluish}` | the login screen |
-| Default icons | `Surfn-Mint-Y-Aqua` (dep `surfn-mint-y-icons-git`) | all three variants default to it |
-| Nord icons | `/usr/share/icons/Kiro-Nordic-{green,darker,bluish}` | Nord-tinted folder icons, still selectable |
+| Icons | `Surfn-Mint-Y-Aqua` (dep `surfn-mint-y-icons-git`) | all three variants use it |
 | Nord cursors | `/usr/share/icons/Kiro-Nordic-cursors` | prebuilt cursor theme |
 
-All three variants default to the **Surfn-Mint-Y-Aqua** icon theme (`surfn-mint-y-icons-git`).
-The bundled Nord folder icons (`Kiro-Nordic-{green,darker,bluish}`) are still shipped and
-selectable; they inherit from **Papirus-Dark**, so the package keeps `papirus-icon-theme`.
+All three variants use the **Surfn-Mint-Y-Aqua** icon theme, pulled in via the
+`surfn-mint-y-icons-git` dependency. The package no longer ships its own Nord folder icons.
 
 ## Install
 

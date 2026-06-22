@@ -11,11 +11,11 @@ Nord's own folder icons and prebuilt cursors. Sibling to [[kiro-plasma-sweet]].
 - Two upstreams (EliverLara/Nordic `kde/` + EliverLara/Nordic-kde) — see [UPSTREAM.md](./UPSTREAM.md).
 
 ## Patterns / things to know
-- **Default icons are `Surfn-Mint-Y-Aqua`** (all three variants, set 2026.06.22) → recipe
-  depends on `surfn-mint-y-icons-git` (in `nemesis_repo`). The package still *ships* Nord's
-  own folder-only icon themes (`Kiro-Nordic-{green,bluish,darker}`, inheriting `Papirus-Dark`,
-  hence the retained `papirus-icon-theme` dep) but no variant defaults to them anymore — they
-  remain selectable. Don't repoint to neo-candy.
+- **Icons are `Surfn-Mint-Y-Aqua`** (all three variants, set 2026.06.22) → recipe depends on
+  `surfn-mint-y-icons-git` (in `nemesis_repo`). The package's own Nord folder-icon themes
+  (`Kiro-Nordic-{green,bluish,darker}`) were dropped 2026.06.22, and the `papirus-icon-theme`
+  dep removed with them. Only `Kiro-Nordic-cursors` remains under `usr/share/icons`.
+  Don't repoint to neo-candy.
 - **Plasma 6 metadata is hand-written.** The look-and-feel (×3) and desktoptheme ship
   `metadata.json` (not upstream's `metadata.desktop`). On any upstream refresh, redo the
   conversion and delete the `.desktop` — see UPSTREAM.md step 1. Without it the themes
