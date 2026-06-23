@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026.06.23 — Recolor Kvantum highlight to match the blue accent
+## 2026.06.23 — Purge leftover Nord teal-green `#8fbcbb` accent across every theme layer
 
 ### What Changed
 - **Fixed green selection highlight in QWidget apps (e.g. Dolphin).** The 2026.06.22 recolor
@@ -10,16 +10,34 @@
   Kvantum — hence the mismatch.
 - Set `highlight.color` and `inactive.highlight.color` to `#3e90bf` (the scheme's selection
   background `62,144,191`) in `Kiro-Nordic.kvconfig` and `Kiro-Nordic-Solid.kvconfig`.
+- **Fixed the persistent green in the Plasma shell.** The desktop theme's own `colors` file
+  (`desktoptheme/Kiro-Nordic/colors`, `ChangeSelectionColor=true`) still carried the green
+  selection/decoration — it colors the panel, Kickoff, system tray and plasmoids independently
+  of the color scheme, so the green survived every scheme change. Recolored selection →
+  `62,144,191` and all `DecorationFocus`/`DecorationHover` → `61,174,233`.
+- **Recolored every remaining baked-in `#8fbcbb`** in the main Kiro-Nordic theme to the blue
+  accent `#3daee9`: desktop-theme widget SVGs (checkmarks, bar meters, clock), the Kvantum
+  `.svg` files (focus rings / handles the `.kvconfig` doesn't cover), the look-and-feel
+  greeter/splash QML + busy spinner, and the SDDM user delegate.
 
 ### Technical Details
-- KColorScheme (color scheme) paints QML/Kirigami; the Kvantum SVG style paints QWidgets
-  including Dolphin's Places panel and item-view selection — two independent accent sources
-  that must be kept in sync.
-- Darker variants use `#4c566a` for the highlight and were intentionally left unchanged.
+- The Nord teal-green accent lived in **five independent layers**, each read by a different
+  subsystem: color scheme `.colors` (KColorScheme → QML/Kirigami), Kvantum `.kvconfig`
+  (QWidget palette), Kvantum `.svg` (QWidget control rendering), desktop-theme `colors`
+  (Plasma shell), and baked hex in theme/greeter SVGs+QML. Fixing only the first two on
+  2026.06.22/earlier left the shell and SVG layers green — hence "persistent."
+- The Darker variant (`Kiro-NordicDarker.colors`, `Kiro-Nordic-darker` splash) uses a separate
+  slate-gray accent `#4c566a` and was left as-is; it still has two stray `143,188,187` leftovers
+  (a `ForegroundVisited` link color and its splash spinner) flagged for a separate decision.
 
 ### Files Modified
-- `usr/share/Kvantum/Kiro-Nordic/Kiro-Nordic.kvconfig`
-- `usr/share/Kvantum/Kiro-Nordic-Solid/Kiro-Nordic-Solid.kvconfig`
+- `usr/share/Kvantum/Kiro-Nordic/Kiro-Nordic.kvconfig`, `usr/share/Kvantum/Kiro-Nordic-Solid/Kiro-Nordic-Solid.kvconfig`
+- `usr/share/Kvantum/Kiro-Nordic/Kiro-Nordic.svg`, `usr/share/Kvantum/Kiro-Nordic-Solid/Kiro-Nordic-Solid.svg`
+- `usr/share/plasma/desktoptheme/Kiro-Nordic/colors`
+- `usr/share/plasma/desktoptheme/Kiro-Nordic/widgets/{checkmarks,bar_meter_horizontal,bar_meter_vertical,clock}.svg`
+- `usr/share/plasma/look-and-feel/Kiro-Nordic/contents/components/{UserDelegate,ActionButton}.qml`
+- `usr/share/plasma/look-and-feel/Kiro-Nordic/contents/splash/Splash.qml`, `.../splash/images/busy.svg`
+- `usr/share/sddm/themes/Kiro-Nordic/components/UserDelegate.qml`
 
 ## 2026.06.22 — Switch icons to Surfn-Mint-Y-Aqua; drop bundled Nord icons; remove Bluish variant
 
