@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026.06.23 — Fix Darker Global Theme not applying its color scheme (name mismatch)
+
+### What Changed
+- **Selecting the "Kiro Nordic Darker" Global Theme now applies its colors.** The look-and-feel
+  `defaults` referenced `ColorScheme=Kiro-Nordic-Darker` (hyphenated), but the scheme file is
+  `Kiro-NordicDarker.colors` so Plasma's registered id is `Kiro-NordicDarker`. The hyphenated
+  name doesn't resolve (`plasma-apply-colorscheme Kiro-Nordic-Darker` → "Could not find theme"),
+  so the Darker theme applied with no/Breeze colors. Pointed the `defaults` at the real id.
+- The main Nordic theme was unaffected because its reference `Kiro-Nordic` matches its id exactly
+  — confirming the GUI Global-Theme apply *does* apply colors when the scheme name resolves.
+
+### Technical Details
+- Plasma identifies color schemes by **filename stem**, not the `.colors` `Name=` field (which is
+  display-only). The fix is the minimal one-line change to the id reference; the file was not
+  renamed, so existing `Kiro-NordicDarker` applications keep working.
+
+### Files Modified
+- `usr/share/plasma/look-and-feel/Kiro-Nordic-darker/contents/defaults`
+
 ## 2026.06.23 — Purge leftover Nord teal-green `#8fbcbb` accent across every theme layer
 
 ### What Changed
