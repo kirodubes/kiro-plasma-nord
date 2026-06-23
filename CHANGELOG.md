@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026.06.23 — Look-and-feel default widget style → Breeze (was Kvantum)
+
+### What Changed
+- Both look-and-feel `defaults` (Kiro-Nordic and Kiro-Nordic-darker) now set
+  `[kdeglobals][KDE]widgetStyle=Breeze` instead of `kvantum`. Applying the Kiro-Nordic Global
+  Theme was flipping the Application Style to Kvantum, which made QWidget apps (Dolphin) dark and
+  **translucent** — not the intended default. Breeze is opaque and follows the colour scheme, so
+  applying the theme now keeps the light, opaque default look (matching `kiro-plasma-sweet`).
+- The Kvantum themes still ship under `usr/share/Kvantum/`; users who want the translucent look
+  can select Kvantum in System Settings → Application Style. It's just no longer the default.
+
+### Technical Details
+- This makes the package consistent with the shipped default appearance
+  (`kiro-plasma-system-settings` seeds `widgetStyle=Breeze` via `/etc/skel`); previously the LnF
+  default and the seeded default disagreed, so re-applying the theme broke the look.
+- Note: the LnF `defaults` still set `ColorScheme=Kiro-Nordic` / `Kiro-NordicDarker` (dark). Plasma
+  does not apply a theme's colour scheme on Global-Theme apply, so this is inert in practice — the
+  user keeps their seeded (light) colours. Left as-is pending a decision on the default colour scheme.
+
 ## 2026.06.23 — Move the default selector out of this package (supersedes the seed below)
 
 ### What Changed
