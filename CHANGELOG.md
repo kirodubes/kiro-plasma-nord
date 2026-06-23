@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026.06.23 — Seed the Nordic color scheme as a system default (`/etc/xdg/kdeglobals`)
+
+### What Changed
+- **Fresh installs / new users now get the Nordic colors by default.** Plasma's Global-Theme
+  apply (GUI and CLI) does **not** apply a look-and-feel's color scheme — it sets the icons,
+  widget style, cursor, plasma theme and kwin decoration from the theme `defaults`, but
+  deliberately preserves the existing color scheme. So selecting "Kiro Nordic" never pulled in
+  its colors; the desktop stayed on whatever scheme (Breeze) was already set.
+- Fixed the same way the sibling `kiro-plasma-sweet` already does it: ship the color scheme as
+  the system-wide default via `etc/xdg/kdeglobals` (a copy of `Kiro-Nordic.colors`, with
+  `[General]ColorScheme=Kiro-Nordic`). Apps read this through the XDG cascade when the user has
+  no `~/.config` override, so a fresh Kiro boots with Nordic colors — and it covers the live-ISO
+  user too, not just new accounts.
+- PKGBUILD `package()` now copies `etc/` alongside `usr/` (matching Sweet).
+
+### Technical Details
+- Verified on the test box: applying the Kiro Nordic (Darker) Global Theme set
+  `LookAndFeelPackage` + wrote `Icons`/`widgetStyle` to `~/.config/kdedefaults/kdeglobals`, but
+  left `ColorScheme` untouched (stayed `BreezeLight`) — confirming Plasma never applies the
+  scheme on theme selection. This is a Plasma behavior, not a packaging bug; seeding the default
+  is the only reliable fix and is the established ecosystem pattern.
+- Only one Kiro Plasma theme is ever installed, so `etc/xdg/kdeglobals` does not conflict with
+  Sweet's identically-pathed file.
+
+### Files Modified
+- `etc/xdg/kdeglobals` (new)
+- `PKGBUILD` (recipe repo): `package()` copies `etc/`
+
 ## 2026.06.23 — Fix Darker Global Theme not applying its color scheme (name mismatch)
 
 ### What Changed
