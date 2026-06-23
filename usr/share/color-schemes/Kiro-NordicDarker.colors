@@ -86,7 +86,7 @@ ForegroundNegative=191,97,106
 ForegroundNeutral=208,135,112
 ForegroundNormal=216,222,233
 ForegroundPositive=163,190,140
-ForegroundVisited=143,188,187
+ForegroundVisited=82,148,226
 
 [General]
 ColorScheme=Kiro-Nordic-Darker

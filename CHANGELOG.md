@@ -26,9 +26,11 @@
   (QWidget palette), Kvantum `.svg` (QWidget control rendering), desktop-theme `colors`
   (Plasma shell), and baked hex in theme/greeter SVGs+QML. Fixing only the first two on
   2026.06.22/earlier left the shell and SVG layers green — hence "persistent."
-- The Darker variant (`Kiro-NordicDarker.colors`, `Kiro-Nordic-darker` splash) uses a separate
-  slate-gray accent `#4c566a` and was left as-is; it still has two stray `143,188,187` leftovers
-  (a `ForegroundVisited` link color and its splash spinner) flagged for a separate decision.
+- The Darker variant uses a separate slate-gray accent `#4c566a` (`76,86,106`). Its two stray
+  green leftovers were also cleaned: `Kiro-NordicDarker.colors` `[Colors:Window]ForegroundVisited`
+  → `82,148,226` (the visited-blue it already uses elsewhere), and its splash spinner
+  (`Kiro-Nordic-darker/.../busy.svg`) → the slate accent `76,86,106`. No green remains in the
+  package outside this CHANGELOG.
 
 ### Files Modified
 - `usr/share/Kvantum/Kiro-Nordic/Kiro-Nordic.kvconfig`, `usr/share/Kvantum/Kiro-Nordic-Solid/Kiro-Nordic-Solid.kvconfig`
