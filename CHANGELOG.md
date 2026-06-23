@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026.06.23 — Drop the redundant "Darker" Global Theme; keep it as a colour scheme
+
+### What Changed
+- Removed the **Kiro-Nordic-Darker look-and-feel** (`usr/share/plasma/look-and-feel/Kiro-Nordic-darker/`,
+  34 files). Plasma's Global-Theme apply never applies a theme's colour scheme, so selecting the
+  "Kiro Nordic Darker" Global Theme left apps light — it only differed from Kiro-Nordic by a colour
+  scheme it couldn't actually apply, so as a Global Theme it was misleading.
+- **Darker is now a colour scheme**, not a global theme: users who want dark apps select
+  `Kiro-Nordic-Darker` in System Settings → Colours. The `Kiro-NordicDarker.colors` scheme, the
+  `Kiro-Nordic-Darker(-Solid)` Kvantum themes, and the `Kiro-Nordic-darker` SDDM theme all remain
+  as selectable dark-Nordic assets.
+- The package now ships a single Global Theme (Kiro-Nordic); description updated.
+
 ## 2026.06.23 — Look-and-feel default widget style → Breeze (was Kvantum)
 
 ### What Changed

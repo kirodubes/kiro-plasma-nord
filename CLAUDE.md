@@ -1,9 +1,12 @@
 # kiro-plasma-nord — Project Claude Instructions
 
 ## Overview
-The **Nord** Plasma global theme for the Kiro Plasma edition. One package shipping two
-selectable Global Themes (Nordic, Nordic Darker) with every layer, plus prebuilt Nord
-cursors. The Nordic Bluish variant was removed 2026.06.22. Sibling to [[kiro-plasma-sweet]].
+The **Nord** Plasma global theme for the Kiro Plasma edition. One package shipping a single
+Global Theme (Kiro-Nordic) with every layer, plus prebuilt Nord cursors. The Nordic Bluish
+variant was removed 2026.06.22; the **Nordic Darker Global Theme was removed 2026.06.23** — it
+only differed by a colour scheme that Plasma can't apply on a Global-Theme click, so "Darker" is
+now a **colour scheme** (`Kiro-Nordic-Darker`) users select in Colours, plus the Darker Kvantum
++ SDDM assets. Sibling to [[kiro-plasma-sweet]]. See [[kiro-plasma-default-theme-selector]].
 
 ## Current state
 - Source repo: `~/KIRO/kiro-plasma-nord` (payload under `usr/`, Kvantum default under `etc/xdg`).
