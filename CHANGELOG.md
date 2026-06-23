@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026.06.23 — Recolor Kvantum highlight to match the blue accent
+
+### What Changed
+- **Fixed green selection highlight in QWidget apps (e.g. Dolphin).** The 2026.06.22 recolor
+  updated the color scheme (`.colors`) but missed the matching Kvantum widget themes, so
+  Kvantum-styled QWidgets still highlighted with the old Nord teal-green `#8fbcbb`. QML/Kirigami
+  UIs (System Settings) already showed the new blue because they read the color scheme, not
+  Kvantum — hence the mismatch.
+- Set `highlight.color` and `inactive.highlight.color` to `#3e90bf` (the scheme's selection
+  background `62,144,191`) in `Kiro-Nordic.kvconfig` and `Kiro-Nordic-Solid.kvconfig`.
+
+### Technical Details
+- KColorScheme (color scheme) paints QML/Kirigami; the Kvantum SVG style paints QWidgets
+  including Dolphin's Places panel and item-view selection — two independent accent sources
+  that must be kept in sync.
+- Darker variants use `#4c566a` for the highlight and were intentionally left unchanged.
+
+### Files Modified
+- `usr/share/Kvantum/Kiro-Nordic/Kiro-Nordic.kvconfig`
+- `usr/share/Kvantum/Kiro-Nordic-Solid/Kiro-Nordic-Solid.kvconfig`
+
 ## 2026.06.22 — Switch icons to Surfn-Mint-Y-Aqua; drop bundled Nord icons; remove Bluish variant
 
 ### What Changed
