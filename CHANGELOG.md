@@ -22,7 +22,9 @@
   scheme on theme selection. This is a Plasma behavior, not a packaging bug; seeding the default
   is the only reliable fix and is the established ecosystem pattern.
 - Only one Kiro Plasma theme is ever installed, so `etc/xdg/kdeglobals` does not conflict with
-  Sweet's identically-pathed file.
+  Sweet's identically-pathed file. Made this explicit with `conflicts=('kiro-plasma-sweet')` in
+  the PKGBUILD (Sweet is the only other theme shipping that path), so pacman cleanly offers to
+  replace rather than erroring on a file collision.
 
 ### Files Modified
 - `etc/xdg/kdeglobals` (new)
