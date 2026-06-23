@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026.06.23 — Move the default selector out of this package (supersedes the seed below)
+
+### What Changed
+- Removed the `etc/xdg/kdeglobals` seed and the `conflicts=('kiro-plasma-sweet')` that the
+  earlier entry added (PKGBUILD no longer copies `etc/`). Reason: KIB installs **all** theme
+  packages onto one system, so a default selector in a theme package would be a pacman file
+  conflict (two themes both owning `/etc/xdg/kdeglobals`) and the `conflicts=` would block the
+  all-themes install outright.
+- The single system-wide default selector now lives in **kiro-plasma-system-settings**, which
+  sets the ISO default to **Kiro-Nordic** (`LookAndFeelPackage` + `ColorScheme` + Nordic colours)
+  and `depends=('kiro-plasma-nord')`. This package is back to shipping only its uniquely-named
+  assets under `usr/` — it coexists with every other Kiro Plasma theme with no conflicts.
+- Net effect for users is unchanged: a fresh Kiro Plasma install still boots Nordic by default;
+  the default is just owned by the base settings package instead of the theme.
+
+### Files Modified
+- `etc/xdg/kdeglobals` (removed)
+- `PKGBUILD` (recipe repo): dropped `conflicts=` and the `etc/` copy
+
 ## 2026.06.23 — Seed the Nordic color scheme as a system default (`/etc/xdg/kdeglobals`)
 
 ### What Changed
