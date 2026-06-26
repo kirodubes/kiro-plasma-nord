@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026.06.24 — Default icon theme → Surfn-Plasma-Dark-Qogir
+
+### What Changed
+- The Kiro-Nordic Global Theme now defaults to the **Surfn-Plasma-Dark-Qogir** icon theme
+  (previously the look-and-feel `defaults` still pointed at `Surfn-Mint-Y-Aqua`). This
+  completes the in-progress move off mint-y, landing on the Qogir variant as requested.
+
+### Technical Details
+- `usr/share/plasma/look-and-feel/Kiro-Nordic/contents/defaults`: `[kdeglobals][Icons] Theme=`
+  `Surfn-Mint-Y-Aqua` → `Surfn-Plasma-Dark-Qogir`.
+- PKGBUILD `depends`: now `('surfn-plasma-dark-qogir-icons-git' 'surfn-plasma-dark-icons-git' …)`.
+  Both are required: `Surfn-Plasma-Dark-Qogir/index.theme` has `Inherits=Surfn-Plasma-Dark,…`,
+  and the qogir package itself declares no depends — so the plain-dark package is the fallback
+  icon base and must ship alongside it.
+- `pkgdesc`, `README.md`, and `CLAUDE.md` updated to reflect the Qogir icons.
+
+### Files Modified
+- `usr/share/plasma/look-and-feel/Kiro-Nordic/contents/defaults`
+- `README.md`
+- `CLAUDE.md`
+- `~/KIRO-PKG-BUILD-APPS/kiro-plasma-nord/PKGBUILD` (depends, pkgdesc)
+
 ## 2026.06.23 — Drop the redundant "Darker" Global Theme; keep it as a colour scheme
 
 ### What Changed

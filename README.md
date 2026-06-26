@@ -5,7 +5,7 @@
 # kiro-plasma-nord
 
 Kiro's **Kiro Nord** Plasma global theme — the calm, muted Nord palette, packaged as two
-ready-to-pick Global Themes with Surfn-Mint-Y-Aqua icons and Nord cursors.
+ready-to-pick Global Themes with Surfn-Plasma-Dark-Qogir icons and Nord cursors.
 
 Everything ships under a `Kiro-` namespace, so it **coexists with the upstream Nordic
 theme** — install the real `nordic-kde-theme-git` / `nordic-kvantum-git` alongside it
@@ -25,11 +25,13 @@ Two Global Themes you select in **System Settings → Appearance → Global Them
 | Kvantum themes | `/usr/share/Kvantum/Kiro-Nordic*` | Qt app styling (incl. `-Solid`) |
 | Kvantum default selection | `/etc/xdg/Kvantum/kvantum.kvconfig` | new users get `Kiro-Nordic` automatically |
 | SDDM login themes | `/usr/share/sddm/themes/Kiro-Nordic{,-darker}` | the login screen |
-| Icons | `Surfn-Mint-Y-Aqua` (dep `surfn-mint-y-icons-git`) | both variants use it |
+| Icons | `Surfn-Plasma-Dark-Qogir` (dep `surfn-plasma-dark-qogir-icons-git`) | inherits `Surfn-Plasma-Dark` as fallback base |
 | Nord cursors | `/usr/share/icons/Kiro-Nordic-cursors` | prebuilt cursor theme |
 
-Both variants use the **Surfn-Mint-Y-Aqua** icon theme, pulled in via the
-`surfn-mint-y-icons-git` dependency. The package no longer ships its own Nord folder icons.
+The default icon theme is **Surfn-Plasma-Dark-Qogir**, pulled in via the
+`surfn-plasma-dark-qogir-icons-git` dependency. Qogir's `index.theme` inherits
+`Surfn-Plasma-Dark`, so `surfn-plasma-dark-icons-git` is also a dependency (the fallback
+base for any icon Qogir doesn't define). The package no longer ships its own Nord folder icons.
 
 ## Install
 

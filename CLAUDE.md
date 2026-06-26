@@ -14,11 +14,14 @@ now a **colour scheme** (`Kiro-Nordic-Darker`) users select in Colours, plus the
 - Two upstreams (EliverLara/Nordic `kde/` + EliverLara/Nordic-kde) — see [UPSTREAM.md](./UPSTREAM.md).
 
 ## Patterns / things to know
-- **Icons are `Surfn-Mint-Y-Aqua`** (both variants, set 2026.06.22) → recipe depends on
-  `surfn-mint-y-icons-git` (in `nemesis_repo`). The package's own Nord folder-icon themes
+- **Icons are `Surfn-Plasma-Dark-Qogir`** (set 2026.06.24) → recipe depends on
+  `surfn-plasma-dark-qogir-icons-git` **and** `surfn-plasma-dark-icons-git`, both in
+  `nemesis_repo`. The qogir package has no depends of its own, but its `index.theme` has
+  `Inherits=Surfn-Plasma-Dark,…`, so the plain-dark package is the required fallback base —
+  keep both. The package's own Nord folder-icon themes
   (`Kiro-Nordic-{green,bluish,darker}`) were dropped 2026.06.22, and the `papirus-icon-theme`
   dep removed with them. Only `Kiro-Nordic-cursors` remains under `usr/share/icons`.
-  Don't repoint to neo-candy.
+  Don't repoint to neo-candy or mint-y.
 - **Plasma 6 metadata is hand-written.** The look-and-feel (×2) and desktoptheme ship
   `metadata.json` (not upstream's `metadata.desktop`). On any upstream refresh, redo the
   conversion and delete the `.desktop` — see UPSTREAM.md step 1. Without it the themes
