@@ -14,7 +14,7 @@ cursorTheme=Kiro-Nordic-cursors
 name=Kiro-Nordic
 
 [kwinrc][org.kde.kdecoration2]
-library=org.kde.kwin.aurorae
+library=org.kde.kwin.aurorae.v2
 theme=__aurorae__svg__Kiro-Nordic
 
 

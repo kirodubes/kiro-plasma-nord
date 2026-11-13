@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026.11.13 — Window decoration id → org.kde.kwin.aurorae.v2
+
+### What Changed
+- The look-and-feel window decoration now uses `library=org.kde.kwin.aurorae.v2`, the id KWin 6.8 writes itself. The old `org.kde.kwin.aurorae` id still works, but goes stale once KDE drops the old plugin, and kiro-audit flagged it as a DIFFERS warning.
+
+### Technical Details
+- Only the `[kwinrc][org.kde.kdecoration2] library=` line changed; `theme=__aurorae__svg__...` stays the same (same format as the Celestial themes).
+
+### Files Modified
+- `usr/share/plasma/look-and-feel/Kiro-Nordic/contents/defaults`
+
 ## 2026.06.24 — Default icon theme → Surfn-Plasma-Dark-Qogir
 
 ### What Changed
